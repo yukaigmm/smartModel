@@ -1,0 +1,87 @@
+{
+  "cells": [
+    {
+      "type": "smart.Entity",
+      "name": "Person",
+      "position": {
+        "x": 300,
+        "y": 300
+      },
+      "size": {
+        "width": 260,
+        "height": 100
+      },
+      "id":"1",
+      "attrs": {
+        ".smart-entity-name-rect": {
+          "fill": "#68ddd5",
+          "stroke": "#ffffff",
+          "stroke-width": 0.5,
+          "height": 60,
+          "transform": "translate(0,0)"
+        },
+        ".smart-entity-name-text": {
+          "text": "<<Abstract>>\nPerson"
+        }
+      }
+    },
+    {
+      "type": "smart.Attribute",
+      "attributes": [
+        "firstName: String",
+        "lastName: String"
+      ],
+      "position": {
+        "x": 100,
+        "y": 100
+      },
+      "size": {
+        "width": 260,
+        "height": 100
+      },
+      "id":"2",
+      "attrs": {
+        ".smart-entity-attrs-rect": {
+          "height": 60,
+          "transform": "translate(0,60)",
+          "fill": "#9687fe",
+          "stroke": "#fff",
+          "stroke-width": 0.5
+        },
+        ".smart-entity-attrs-text": {
+          "text": "firstName: String\nlastName: String",
+          "fill": "#fff"
+        }
+      }
+    },
+    {
+      "type": "smart.Method",
+      "methods": [
+        "+ setName(first: String, last: String): Void",
+        "+ getName(): String"
+      ],
+      "position": {
+        "x": 300,
+        "y": 300
+      },
+      "size": {
+        "width": 260,
+        "height": 100
+      },
+      "id":"3",
+      "attrs": {
+        ".smart-entity-methods-rect": {
+          "height": 60,
+          "transform": "translate(0,120)",
+          "fill": "#9687fe",
+          "stroke": "#fff",
+          "stroke-width": 0.5
+        },
+        ".smart-entity-methods-text": {
+          "text": "+ setName(first: String, last: String): Void\n+ getName(): String",
+          "fill": "#fff"
+        }
+      }
+    }
+  ]
+}
