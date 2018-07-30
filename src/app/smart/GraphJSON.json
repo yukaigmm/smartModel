@@ -4,8 +4,8 @@
       "type": "smart.Entity",
       "name": "Person",
       "position": {
-        "x": 300,
-        "y": 300
+        "x": 700,
+        "y": 500
       },
       "size": {
         "width": 260,
@@ -23,14 +23,11 @@
         ".smart-entity-name-text": {
           "text": "<<Abstract>>\nPerson"
         }
-      }
+      },
+      "target":"Car"
     },
     {
       "type": "smart.Attribute",
-      "attributes": [
-        "firstName: String",
-        "lastName: String"
-      ],
       "position": {
         "x": 100,
         "y": 100
@@ -40,9 +37,98 @@
         "height": 100
       },
       "id":"2",
+      "attributes": [
+        {"name":"Jack"},
+        {"ID":"0x0001"},
+        {"age":"18"}
+      ],
       "attrs": {
         ".smart-entity-attrs-rect": {
+          "transform": "translate(0,60)",
+          "fill": "#9687fe",
+          "stroke": "#fff",
+          "stroke-width": 0.5
+        },
+        ".smart-entity-attrs-text": {
+          "text": "",
+          "fill": "#fff"
+        }
+      }
+    },
+    {
+      "type": "smart.Method",
+      "methods": [
+        "+ setName(first: String, last: String): Void",
+        "+ getName(): String"
+      ],
+      "position": {
+        "x": 300,
+        "y": 300
+      },
+      "size": {
+        "width": 260,
+        "height": 100
+      },
+      "id":"3",
+      "attrs": {
+        ".smart-entity-methods-rect": {
           "height": 60,
+          "transform": "translate(0,120)",
+          "fill": "#9687fe",
+          "stroke": "#fff",
+          "stroke-width": 0.5
+        },
+        ".smart-entity-methods-text": {
+          "text": "+ setName(first: String, last: String): Void\n+ getName(): String",
+          "fill": "#fff"
+        }
+      }
+    },
+    {
+      "type": "smart.Entity",
+      "name": "Car",
+      "position": {
+        "x": 100,
+        "y": 100
+      },
+      "size": {
+        "width": 260,
+        "height": 100
+      },
+      "id":"4",
+      "attrs": {
+        ".smart-entity-name-rect": {
+          "fill": "#68ddd5",
+          "stroke": "#ffffff",
+          "stroke-width": 0.5,
+          "height": 60,
+          "transform": "translate(0,0)"
+        },
+        ".smart-entity-name-text": {
+          "text": "<<Abstract>>\nPerson"
+        }
+      }
+    },
+    {
+      "type": "smart.Attribute",
+      "attributes": [
+        {"ID":"0x0008"},
+        {
+          "target":"Person",
+          "ownerID":"0x0001"
+        }
+      ],
+      "position": {
+        "x": 100,
+        "y": 100
+      },
+      "size": {
+        "width": 260,
+        "height": 100
+      },
+      "id":"5",
+      "attrs": {
+        ".smart-entity-attrs-rect": {
           "transform": "translate(0,60)",
           "fill": "#9687fe",
           "stroke": "#fff",
@@ -68,7 +154,7 @@
         "width": 260,
         "height": 100
       },
-      "id":"3",
+      "id":"6",
       "attrs": {
         ".smart-entity-methods-rect": {
           "height": 60,

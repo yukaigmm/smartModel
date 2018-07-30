@@ -1,62 +1,75 @@
 import joint from 'jointjs';
 
 joint.shapes.basic.Generic.define('smart.Method', {
-  attrs: {
-      rect: { 'width': 200 },
+    attrs: {
+        rect: {
+            'width': 260
+        },
 
-      '.smart-entity-methods-rect': { 'stroke': 'black', 'stroke-width': 2, 'fill': '#2980b9' },
+        '.smart-entity-methods-rect': {
+            'stroke': 'black',
+            'stroke-width': 2,
+            'fill': '#2980b9',
+            'cursor': 'default'
+        },
 
-      '.smart-entity-methods-text': {
-          'ref': '.smart-entity-methods-rect', 'ref-y': 5, 'ref-x': 5,
-          'fill': 'black', 'font-size': 12, 'font-family': 'Times New Roman'
-      }
-  },
+        '.smart-entity-methods-text': {
+            'ref': '.smart-entity-methods-rect',
+            'ref-y': 5,
+            'ref-x': 5,
+            'fill': 'black',
+            'font-size': 12,
+            'font-family': 'Times New Roman',
+            'cursor':'default'
+        }
+    },
 
-  name: [],
-  attributes: [],
-  methods: []
+    name: [],
+    attributes: [],
+    methods: []
 }, {
-  markup: `<rect class="smart-entity-methods-rect"/>
+    markup: `<rect class="smart-entity-methods-rect"/>
       <text class="smart-entity-methods-text"/>`,
 
-  initialize: function() {
+    initialize: function () {
 
-      this.on('change:methods', function() {
-          this.updateRectangles();
-          this.trigger('uml-update');
-      }, this);
+        this.on('change:methods', function () {
+            this.updateRectangles();
+            this.trigger('uml-update');
+        }, this);
 
-      this.updateRectangles();
+        this.updateRectangles();
 
-      joint.shapes.basic.Generic.prototype.initialize.apply(this, arguments);
-  },
+        joint.shapes.basic.Generic.prototype.initialize.apply(this, arguments);
+    },
 
-  getClassName: function() {
-      return this.get('name');
-  },
+    getClassName: function () {
+        return this.get('name');
+    },
 
-  updateRectangles: function() {
+    updateRectangles: function () {
 
-      var attrs = this.get('attrs');
+        var attrs = this.get('attrs');
 
-      var rects = [
-          { type: 'methods', text: this.get('methods') }
-      ];
+        var rects = [{
+            type: 'methods',
+            text: this.get('methods')
+        }];
 
-      var offsetY = 0;
+        var offsetY = 0;
 
-      rects.forEach(function(rect) {
+        rects.forEach(function (rect) {
 
-          var lines = Array.isArray(rect.text) ? rect.text : [rect.text];
-          var rectHeight = lines.length * 20 + 20;
+            var lines = Array.isArray(rect.text) ? rect.text : [rect.text];
+            var rectHeight = lines.length * 20 + 20;
 
-          attrs['.smart-entity-' + rect.type + '-text'].text = lines.join('\n');
-          attrs['.smart-entity-' + rect.type + '-rect'].height = rectHeight;
-          attrs['.smart-entity-' + rect.type + '-rect'].transform = 'translate(0,' + offsetY + ')';
+            attrs['.smart-entity-' + rect.type + '-text'].text = lines.join('\n');
+            attrs['.smart-entity-' + rect.type + '-rect'].height = rectHeight;
+            attrs['.smart-entity-' + rect.type + '-rect'].transform = 'translate(0,' + offsetY + ')';
 
-          offsetY += rectHeight;
-      });
-  }
+            offsetY += rectHeight;
+        });
+    }
 
 });
 
